@@ -1,0 +1,20 @@
+Dear user,
+
+we understand you are doing your best to make this work. Sadly it appears that
+it still is not enough.
+
+Here is what you're supposed to do (to be honest, it's really REALLY easy, I'm 
+astonished by your unability to make this work, but whatever):
+
+Please provide a valid pathname to a file containing valid tetrimino pieces. You
+may ask: "But, what is a valid tetrimino file, dear computer?".
+
+A valid tetrimino file: every Tetrimino must exactly fit in a 4 by 4 chars
+square and all Tetriminos are separated by a newline.
+
+A valid tetrimino must respect the following rules:
+
+- Precisely 4 lines of 4 characters, each followed by a new line
+- A Tetrimino is a classic piece of Tetris composed of 4 blocks
+- Each character must be either a block char ('#') or an empty char ('.')
+- Each block must touch at least one other block on one of his four sides
