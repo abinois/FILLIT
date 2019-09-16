@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_po(unsigned long long nb, int po)
+int	ft_po(int nb, int po)
 {
 	int	res;
 
