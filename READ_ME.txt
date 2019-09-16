@@ -24,4 +24,5 @@ By tetriminos I mean :
 This is a parsing and backtracking project.
 Check out the school Subject.pdf for more infos.
 
+This project has been done by abinois & edillenb.
 👌 enjoy :)
