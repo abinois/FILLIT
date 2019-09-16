@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_file.c                                  :+:      :+:    :+:   */
+/*   ft_octatoa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edillenb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/12 18:30:34 by edillenb          #+#    #+#             */
-/*   Updated: 2019/05/09 14:08:53 by abinois          ###   ########.fr       */
+/*   Created: 2019/05/13 14:46:14 by edillenb          #+#    #+#             */
+/*   Updated: 2019/05/15 15:09:42 by abinois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include "libft.h"
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/uio.h>
+#include <stdlib.h>
 
-void	ft_display_file(char *file_name)
+char			*ft_octatoa(unsigned long long nbr)
 {
-	int		fd;
-	int		ret;
-	char	buf[1];
+	unsigned long long	res;
+	char				*tab;
+	int					n;
 
-	if (!file_name || (fd = open(file_name, O_RDONLY)) == -1)
-		return ;
-	while ((ret = read(fd, buf, 4096)) && ret != -1)
-		write(1, buf, ret);
-	close(fd);
+	res = nbr;
+	n = 1;
+	while (res > 7)
+	{
+		n++;
+		res /= 8;
+	}
+	if (!(tab = (char*)malloc(sizeof(*tab) * n + 1)))
+		return (NULL);
+	tab[n] = '\0';
+	while (n-- > 0)
+	{
+		tab[n] = nbr % 8 + '0';
+		nbr /= 8;
+	}
+	return (tab);
 }

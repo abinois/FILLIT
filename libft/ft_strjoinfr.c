@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strjoinfr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abinois <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/08 18:49:20 by abinois           #+#    #+#             */
-/*   Updated: 2019/05/31 18:36:26 by edillenb         ###   ########.fr       */
+/*   Created: 2019/05/27 11:58:59 by abinois           #+#    #+#             */
+/*   Updated: 2019/05/31 16:37:29 by edillenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strtrim(const char *s)
+char	*ft_strjoinfr(char **s1, char **s2, char option)
 {
+	char	*new;
 	size_t	len;
-	size_t	i;
+	int		i;
 
-	i = 0;
-	if (!s)
-		return (NULL);
-	len = ft_strlen(s);
-	while (s[i] && (s[i] == ' ' || s[i] == '\t' || s[i] == '\n'))
-		i++;
-	if (len != i)
+	new = NULL;
+	if (*s1 && *s2)
 	{
-		while (s[len - 1] == ' ' || s[len - 1] == '\t' || s[len - 1] == '\n')
-			len--;
+		len = ft_strlen(*s1) + ft_strlen(*s2);
+		if (!(new = (char*)malloc(sizeof(*new) * len + 1)))
+			return ((char*)ft_free_stropt(s1, s2, option));
+		i = -1;
+		while ((*s1)[++i])
+			new[i] = (*s1)[i];
+		len = 0;
+		while ((*s2)[len])
+			new[i++] = (*s2)[len++];
+		new[i] = '\0';
 	}
-	return (ft_strsub((const char**)&s, i, len - i, 0));
+	ft_free_stropt(s1, s2, option);
+	return (new);
 }

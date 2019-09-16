@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_putnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abinois <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/05 22:06:00 by abinois           #+#    #+#             */
-/*   Updated: 2019/07/28 13:36:55 by ltimsit-         ###   ########.fr       */
+/*   Created: 2019/05/09 13:56:07 by abinois           #+#    #+#             */
+/*   Updated: 2019/05/09 13:59:56 by abinois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
+#include <string.h>
 
-void	ft_strdel(char **as)
+void	ft_putnstr(const char *s, size_t n)
 {
-	if (!as || !*as)
-		return ;
-	ft_memdel((void**)as, 0);
+	write(1, s, n);
 }

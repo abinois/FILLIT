@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_po.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abinois <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/05 22:06:00 by abinois           #+#    #+#             */
-/*   Updated: 2019/07/28 13:36:55 by ltimsit-         ###   ########.fr       */
+/*   Created: 2019/04/12 14:08:20 by abinois           #+#    #+#             */
+/*   Updated: 2019/05/29 17:51:47 by abinois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_strdel(char **as)
+int	ft_po(unsigned long long nb, int po)
 {
-	if (!as || !*as)
-		return ;
-	ft_memdel((void**)as, 0);
+	int	res;
+
+	res = 1;
+	if (!po)
+		return (1);
+	if (po < 0 || !nb)
+		return (0);
+	while (po--)
+		res *= nb;
+	return (res);
 }

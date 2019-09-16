@@ -6,14 +6,14 @@
 /*   By: abinois <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 23:38:17 by abinois           #+#    #+#             */
-/*   Updated: 2019/04/12 17:24:19 by abinois          ###   ########.fr       */
+/*   Updated: 2019/05/10 17:30:35 by edillenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+void	ft_putstr(const char *s)
 {
 	if (!s)
 		return ;

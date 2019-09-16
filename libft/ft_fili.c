@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pow.c                                           :+:      :+:    :+:   */
+/*   ft_fili.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abinois <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/12 14:08:20 by abinois           #+#    #+#             */
-/*   Updated: 2019/04/16 08:49:41 by abinois          ###   ########.fr       */
+/*   Created: 2019/05/09 14:02:18 by abinois           #+#    #+#             */
+/*   Updated: 2019/05/10 19:28:17 by abinois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_pow(int nb, int po)
-{
-	int		res;
+#include "libft.h"
 
-	res = 1;
-	if (!po)
-		return (1);
-	if (po < 0 || !nb)
-		return (0);
-	while (po--)
-		res *= nb;
-	return (res);
+void	ft_fili(const char *file, size_t line)
+{
+	ft_putstrclr(file, "green");
+	ft_putstr(" > line : ");
+	ft_putnbr(line);
+	ft_putchar('\n');
 }

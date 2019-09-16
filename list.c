@@ -89,7 +89,7 @@ t_tetri		*tetri_to_struct(int fd)
 		return (NULL);
 	h = 0;
 	y = -1;
-	while (ft_get_next_line(fd, &line) && ++y < 4)
+	while (ft_get_next_line(fd, &line, 0) && ++y < 4)
 	{
 		x = -1;
 		while (++x < 4)

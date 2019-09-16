@@ -21,7 +21,7 @@ int		get_board_min(int tetri)
 
 	b = tetri * 4;
 	sq = ft_sqrt(b);
-	if (ft_pow(sq, 2) < b)
+	if (ft_po(sq, 2) < b)
 		return (sq + 1);
 	return (sq);
 }

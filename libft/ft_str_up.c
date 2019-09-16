@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_str_up.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abinois <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/05 22:06:00 by abinois           #+#    #+#             */
-/*   Updated: 2019/07/28 13:36:55 by ltimsit-         ###   ########.fr       */
+/*   Created: 2019/05/14 11:28:53 by abinois           #+#    #+#             */
+/*   Updated: 2019/06/10 14:58:22 by edillenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-void	ft_strdel(char **as)
+char	*ft_str_up(char *s)
 {
-	if (!as || !*as)
-		return ;
-	ft_memdel((void**)as, 0);
+	size_t		i;
+
+	i = 0;
+	if (!s)
+		return (NULL);
+	while (s[i])
+	{
+		if (s[i] >= 'a' && s[i] <= 'z')
+			s[i] -= 32;
+		i++;
+	}
+	return (s);
 }

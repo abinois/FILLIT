@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_file.c                                  :+:      :+:    :+:   */
+/*   ft_hexatoa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edillenb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/12 18:30:34 by edillenb          #+#    #+#             */
-/*   Updated: 2019/05/09 14:08:53 by abinois          ###   ########.fr       */
+/*   Created: 2019/05/13 18:59:33 by edillenb          #+#    #+#             */
+/*   Updated: 2019/05/29 13:09:55 by edillenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include "libft.h"
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/uio.h>
+#include <stdlib.h>
 
-void	ft_display_file(char *file_name)
+char	*ft_hexatoa(unsigned long long nbr)
 {
-	int		fd;
-	int		ret;
-	char	buf[1];
+	char				*base;
+	unsigned long long	res;
+	char				*tab;
+	int					n;
 
-	if (!file_name || (fd = open(file_name, O_RDONLY)) == -1)
-		return ;
-	while ((ret = read(fd, buf, 4096)) && ret != -1)
-		write(1, buf, ret);
-	close(fd);
+	base = "0123456789abcdef";
+	res = nbr;
+	n = 1;
+	while (res > 15)
+	{
+		n++;
+		res /= 16;
+	}
+	if (!(tab = (char*)malloc(sizeof(*tab) * n + 1)))
+		return (NULL);
+	tab[n] = '\0';
+	while (n-- > 0)
+	{
+		tab[n] = base[nbr % 16];
+		nbr /= 16;
+	}
+	return (tab);
 }
