@@ -7,7 +7,7 @@
    | |       | |  | |__.  | |__.  | |    | |
    |_|       |_|  |____|  |____|  |_|    |_|
 
-------------------------------------------------
+-------------------------------------------------
 
 This is the first 42 school's project.
 The purpose is to fill in the smallest square possible,
